@@ -1,39 +1,38 @@
 name: lootkeeper_app
-description: "A new Flutter project."
+description: Organizador de leitura — Livros, Mangás e Quadrinhos.
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.1
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
-
-  # Gerenciamento de estado
+  # Estado
   provider: ^6.1.1
 
-  # Câmera e scanner ISBN/QR
+  # Scanner de ISBN
   mobile_scanner: ^5.2.3
 
-  # Banco de dados local
+  # Banco local
   sqflite: ^2.3.2
   path: ^1.9.0
 
-  # Requisições HTTP
+  # HTTP
   http: ^1.2.1
 
-  # Utilidades
+  # Imagens com cache
   cached_network_image: ^3.3.1
-  shared_preferences: ^2.2.2
-  intl: ^0.19.0
+
+  # Ícones
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true

@@ -11,28 +11,35 @@ class DatabaseService {
   }
 
   Future<Database> _initDB() async {
-    final path = join(await getDatabasesPath(), 'library.db');
+    final dbPath = join(await getDatabasesPath(), 'minha_estante.db');
     return openDatabase(
-      path,
+      dbPath,
       version: 1,
-      onCreate: (db, version) => db.execute('''
-        CREATE TABLE books (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          title TEXT NOT NULL,
-          cover_url TEXT,
-          synopsis TEXT,
-          type TEXT NOT NULL,
-          rating REAL,
-          author TEXT
-        )
-      '''),
+      onCreate: (db, version) async {
+        await db.execute('''
+          CREATE TABLE books (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            author TEXT,
+            cover_url TEXT,
+            synopsis TEXT,
+            type TEXT NOT NULL DEFAULT 'book',
+            rating REAL,
+            page_count INTEGER,
+            published_date TEXT
+          )
+        ''');
+      },
     );
   }
 
   Future<int> insert(BookItem item) async {
     final db = await database;
-    return db.insert('books', item.toMap(),
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return db.insert(
+      'books',
+      item.toMap()..remove('id'),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<List<BookItem>> getAll() async {
