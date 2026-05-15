@@ -1,4 +1,4 @@
-name: lootkeeper_app
+name: minha_estante
 description: Organizador de leitura — Livros, Mangás e Quadrinhos.
 publish_to: 'none'
 version: 1.0.0+1
@@ -13,8 +13,14 @@ dependencies:
   # Estado
   provider: ^6.1.1
 
-  # Scanner de ISBN
+  # Scanner de ISBN (código de barras)
   mobile_scanner: ^5.2.3
+
+  # OCR — leitura de texto da capa
+  google_mlkit_text_recognition: ^0.13.0
+
+  # Câmera e galeria para foto da capa
+  image_picker: ^1.1.2
 
   # Banco local
   sqflite: ^2.3.2
@@ -26,7 +32,6 @@ dependencies:
   # Imagens com cache
   cached_network_image: ^3.3.1
 
-  # Ícones
   cupertino_icons: ^1.0.6
 
 dev_dependencies:

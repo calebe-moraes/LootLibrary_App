@@ -3,6 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
+	<string>Usamos a câmera para escanear ISBN e fotografar capas.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Usamos a galeria para buscar obras pela capa.</string>
+	<key>NSCameraUsageDescription</key>
 	<string>Precisamos da câmera para escanear o ISBN dos livros.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Precisamos do microfone para capturar áudio.</string>
