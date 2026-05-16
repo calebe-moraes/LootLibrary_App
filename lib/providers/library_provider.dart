@@ -9,17 +9,17 @@ class LibraryProvider extends ChangeNotifier {
   List<BookItem> get items => _items;
 
   Future<void> load() async {
-    _items = await _db.getAll();
+    _items = await _db.getAllBooks();
     notifyListeners();
   }
 
   Future<void> save(BookItem item) async {
-    await _db.insert(item);
+    await _db.insertBook(item);
     await load();
   }
 
   Future<void> remove(int id) async {
-    await _db.delete(id);
+    await _db.deleteBook(id);
     await load();
   }
 }
